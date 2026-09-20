@@ -1,0 +1,11 @@
+{
+  "name": "youtube_management_platfrom",
+  "version": "1.0.0",
+  "description": "a platform to manage the videos like youtube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vansh bhardwaj",
+  "license": "ISC"
+}
