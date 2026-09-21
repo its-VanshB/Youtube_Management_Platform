@@ -2,10 +2,27 @@
   "name": "youtube_management_platfrom",
   "version": "1.0.0",
   "description": "a platform to manage the videos like youtube",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "author": "Vansh bhardwaj",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "prettier": "^3.9.8"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.11.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.10.1",
+    "mongoose-aggregate-paginate-v2": "^1.1.5",
+    "multer": "^2.4.0"
+  }
 }
