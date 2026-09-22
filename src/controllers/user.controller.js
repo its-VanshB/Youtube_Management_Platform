@@ -1,6 +1,5 @@
 import { ApiError } from "../utils/api_error.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiError } from "../utils/api_error.js";
 import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/api_response.js";
@@ -24,7 +23,7 @@ const registerUser = asyncHandler(
             throw new ApiError(400 , "All fields are required");
         }
 
-        const existedUser = User.findOne({
+        const existedUser = await User.findOne({
             $or: [{username} ,{email}]
         });
 
@@ -33,7 +32,12 @@ const registerUser = asyncHandler(
         }
 
         const avatarLocalPath = req.files?.avatar[0]?.path;
-        const coverimageLocalPath = req.files?.coverimage[0]?.path;
+        //const coverimageLocalPath = req.files?.coverimage[0]?.path;
+
+        let coverimageLocalPath;
+        if(req.files && Array.isArray(req.files.coverimage) && req.files.coverimage.length>0){
+            coverimageLocalPath = req.files.coverimage[0].path;
+        }
 
         if(!avatarLocalPath) {
             throw new ApiError(400 , "Avatar file is required");
